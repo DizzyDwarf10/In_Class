@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Humans vs Zombies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Humans vs Zombies</h1>
+    <p>Choose your side, track the game, and log every tag.</p>
+  </header>
+
+  <main class="container">
+    <!-- Left: Join & Tag -->
+    <section class="panel">
+      <h2>Join the game</h2>
+
+      <div class="team-select">
+        <button class="team-btn human active" data-team="human">Human</button>
+        <button class="team-btn zombie" data-team="zombie">Zombie</button>
+      </div>
+
+      <label for="playerName">Your name</label>
+      <input id="playerName" type="text" placeholder="e.g. NightRunner" />
+
+      <button id="joinBtn" class="primary-btn">Join as Selected Team</button>
+
+      <hr class="divider" />
+
+      <h2>Log a tag</h2>
+      <p class="hint">
+        When a human is tagged, they become a zombie.
+      </p>
+
+      <div class="tag-controls">
+        <input id="taggerName" type="text" placeholder="Tagger name" />
+        <input id="taggedName" type="text" placeholder="Tagged human name" />
+        <button id="tagBtn" class="primary-btn">Log Tag</button>
+      </div>
+    </section>
+
+    <!-- Right: Scoreboard & Log -->
+    <section class="panel">
+      <h2>Scoreboard</h2>
+      <div class="scoreboard">
+        <div class="score-card human">
+          <h3>Humans</h3>
+          <span id="humanCount">0</span>
+        </div>
+        <div class="score-card zombie">
+          <h3>Zombies</h3>
+          <span id="zombieCount">0</span>
+        </div>
+      </div>
+
+      <h2 class="log-title">Game log</h2>
+      <div id="log" class="log"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
