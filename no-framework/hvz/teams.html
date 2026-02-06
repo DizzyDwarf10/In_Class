@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HvZ Teams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Teams</h1>
+  <p>Humans and Zombies</p>
+</header>
+
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="rules.html">Rules</a>
+  <a href="teams.html" class="active">Teams</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main class="page">
+  <h2>Humans</h2>
+  <ul id="humanList" class="team-list"></ul>
+
+  <h2>Zombies</h2>
+  <ul id="zombieList" class="team-list"></ul>
+</main>
+
+<footer>
+  Humans vs Zombies · Teams Page
+</footer>
+
+<script>
+  function loadPlayers() {
+    const saved = localStorage.getItem("hvzPlayers");
+    return saved ? JSON.parse(saved) : {};
+  }
+
+  const players = loadPlayers();
+  const humanList = document.getElementById("humanList");
+  const zombieList = document.getElementById("zombieList");
+
+  for (const [name, team] of Object.entries(players)) {
+    const li = document.createElement("li");
+    li.textContent = name;
+
+    if (team === "human") {
+      humanList.appendChild(li);
+    } else {
+      zombieList.appendChild(li);
+    }
+  }
+</script>
+
+</body>
+</html>
